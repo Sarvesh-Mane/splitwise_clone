@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# API - Dashboard
+GET     /api/dashboard                          controllers.DashboardController.getDashboard(request: Request)
+
+# API - Users
+GET     /api/users                              controllers.UserController.getUsers()
+
+# API - Groups
+GET     /api/groups                             controllers.GroupController.getGroups(request: Request)
+POST    /api/groups                             controllers.GroupController.createGroup(request: Request)
+GET     /api/groups/:id                         controllers.GroupController.getGroupById(id: Long, request: Request)
+GET     /api/groups/:id/detail                  controllers.GroupController.getGroupDetail(id: Long, request: Request)
+POST    /api/groups/:id/members                 controllers.GroupController.addMember(request: Request, id: Long)
+DELETE  /api/groups/:id                         controllers.GroupController.deleteGroup(id: Long, request: Request)
+GET     /api/groups/:groupId/expenses           controllers.GroupController.getExpenses(groupId: Long, request: Request)
+
+# API - Expenses
+GET     /api/expenses/:id                       controllers.ExpenseController.getExpenseById(id: Long, request: Request)
+POST    /api/groups/:groupId/expenses           controllers.ExpenseController.createExpense(request: Request, groupId: Long)
+PUT     /api/groups/:groupId/expenses/:id       controllers.ExpenseController.updateExpense(request: Request, groupId: Long, id: Long)
+DELETE  /api/groups/:groupId/expenses/:id        controllers.ExpenseController.deleteExpense(groupId: Long, id: Long, request: Request)
+
+# API - Settlements
+GET     /api/groups/:groupId/settlements        controllers.SettlementController.getSettlements(groupId: Long, request: Request)
+
+# API - Invitations
+POST    /api/groups/:groupId/invitations        controllers.InvitationController.invite(request: Request, groupId: Long)
+GET     /api/groups/:groupId/invitations        controllers.InvitationController.getGroupInvitations(request: Request, groupId: Long)
+GET     /api/invitations/pending                controllers.InvitationController.getPendingInvitations(request: Request)
+POST    /api/invitations/:id/accept             controllers.InvitationController.accept(request: Request, id: Long)
+POST    /api/invitations/:id/decline            controllers.InvitationController.decline(request: Request, id: Long)
+
+#Authentication
+POST    /api/auth/register                      controllers.AuthController.register(request: Request)
+POST    /api/auth/login                         controllers.AuthController.login(request: Request)
+GET     /api/auth/me                            controllers.AuthController.me(request: Request)
+PUT     /api/auth/change-password               controllers.AuthController.changePassword(request: Request)
+
+# Map static resources from the /public folder to the /assets path
+GET     /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)

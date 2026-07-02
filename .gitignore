@@ -1,0 +1,16 @@
+logs
+target
+/.bsp
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+conf/application.local.conf
+frontend/node_modules/
+*.iml
+.DS_Store
+target/
+project/project/
+project/target/

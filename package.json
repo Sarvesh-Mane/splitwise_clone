@@ -1,0 +1,15 @@
+{
+  "name": "splitwise_clone",
+  "version": "1.0.0",
+  "description": "splitwise app",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
